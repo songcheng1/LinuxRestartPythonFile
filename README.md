@@ -22,10 +22,10 @@
     crontab -r # 清除crontab执行的命令
     
 三、crontab编写解释
-
-   *   *   *   *   *   user    command
-
-   分  时  日  月  周   用户    命令
+   
+      * * * * * user command 
+      分时日月 周 用户  命令
+   
 
 eg：
     
