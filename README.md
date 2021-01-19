@@ -32,10 +32,10 @@ crontab编写解释
        
        
        
-# 查询正在执行脚本的进程(这里以run_me.py为例)
-ps -aux|grep run_me.py| grep -v grep | awk '{print $2}'  
-# 杀死正在运行脚本的进程(这里以run_me.py为例)
-ps -aux|grep run_me.py| grep -v grep | awk '{print $2}' | xargs kill -9
+# 查询正在执行脚本的进程(这里以main.py为例)
+ps -aux|grep main.py| grep -v grep | awk '{print $2}'  
+# 杀死正在运行脚本的进程(这里以main.py为例)
+ps -aux|grep main.py| grep -v grep | awk '{print $2}' | xargs kill -9
     
 # 注意该脚本以nohup执行，请先安装nohup (centos)
 yum install coreutils 
