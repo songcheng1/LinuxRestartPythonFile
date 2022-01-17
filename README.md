@@ -66,3 +66,6 @@ ps -aux|grep main.py| grep -v grep | awk '{print $2}' | xargs kill -9
 # 注意该脚本以nohup执行，请先安装nohup (centos)
 
 yum install coreutils 
+
+# 查询linux系统指令
+cat /etc/redhat-release
