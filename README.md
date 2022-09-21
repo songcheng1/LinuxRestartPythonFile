@@ -69,3 +69,7 @@ yum install coreutils
 
 # 查询linux系统指令
 cat /etc/redhat-release
+
+# shell指令 执行数据库数据同步
+mysql -h host -Pport -uusname -ppwd -e "INSERT IGNORE INTO spider.material_gallery_record_source(filename,sport_type) SELECT filename,sport_type FROM spider.material_gallery_record_success where DATE(update_time)=DATE_SUB(CURDATE(), INTERVAL 3 DAY)"
+
