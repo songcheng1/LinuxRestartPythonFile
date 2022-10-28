@@ -73,3 +73,15 @@ cat /etc/redhat-release
 # shell指令 执行数据库数据同步
 mysql -h host -Pport -uusname -ppwd -e "INSERT IGNORE INTO spider.material_gallery_record_source(filename,sport_type) SELECT filename,sport_type FROM spider.material_gallery_record_success where DATE(update_time)=DATE_SUB(CURDATE(), INTERVAL 3 DAY)"
 
+
+# python时区时差调整（只是针对小时更改）
+
+import re
+import datetime
+date_string = "2022-10-10T02:30:01.562016"
+re_match_datetime_string_third = re.findall(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d+', date_string, re.S)
+time_struct = datetime.datetime.strptime(re_match_datetime_string_third[0], "%Y-%m-%dT%H:%M:%S.%f")
+time_struct = time_struct + datetime.timedelta(hours=8)
+standard_time_format_string = time_struct.strftime("%Y-%m-%d %H:%M:%S")
+print(standard_time_format_string)
+
